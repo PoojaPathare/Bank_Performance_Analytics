@@ -2,7 +2,7 @@ DROP PROCEDURE IF EXISTS  dbo.Get_FY_KPI_YoY;
 
 
 -----------------------------------------------------------------------------------------
--- Procedure Name: dbo.YoY_Calculation
+-- Procedure Name: dbo.Get_FY_KPI_YoY
 -- Business Goal:  Generates Changes over year & Performance Report. 
 --                 Calculates Banking KPIs profitability metrics including are Net Interest Margin (NIM),
 --                 (ROA), (ROE).
