@@ -23,7 +23,7 @@ BEGIN
     IF @Fiscal_Year IS NULL
     BEGIN
         SELECT TOP 1 @Fiscal_Year = Fiscal_Year
-        FROM Internal_Bank_Data..Date$
+        FROM Date$
         ORDER BY Fiscal_Year DESC;
     END
 
@@ -38,11 +38,11 @@ BEGIN
             SUM(F.NII) AS Total_NII,
             SUM(F.PAT) AS Total_PAT,
 
-            SUM(F.Avg_earning_assets) AS Total_Avg_Earning_Assets,
-            SUM(F.Avg_Total_Asset)    AS Total_Avg_Total_Asset,
-            SUM(F.Avg_Equity)         AS Total_Avg_Equity
-        FROM Internal_Bank_Data..Performance$ F
-        JOIN Internal_Bank_Data..Date$ D
+            AVG(F.Avg_earning_assets) AS Total_Avg_Earning_Assets,
+            AVG(F.Avg_Total_Asset)    AS Total_Avg_Total_Asset,
+            AVG(F.Avg_Equity)         AS Total_Avg_Equity
+        FROM Performance$ F
+        JOIN Date$ D
             ON F.Date_Key = D.Date_Key
         GROUP BY
             D.Fiscal_Year,
